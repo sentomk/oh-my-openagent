@@ -207,9 +207,9 @@ describe("resolveSubagentExecution", () => {
 
   test("matches agents even when zero-width characters are present in the requested name", async () => {
     //#given
-    const args = createBaseArgs({ subagent_type: "\uFEFFSisyphus - Ultraworker" })
+    const args = createBaseArgs({ subagent_type: "\uFEFFSisyphus | Ultraworker" })
     const executorCtx = createExecutorContext(async () => ([
-      { name: "\u200BSisyphus - Ultraworker", mode: "subagent", model: "openai/gpt-5.3-codex" },
+      { name: "\u200BSisyphus | Ultraworker", mode: "subagent", model: "openai/gpt-5.3-codex" },
     ]))
 
     //#when
@@ -217,7 +217,7 @@ describe("resolveSubagentExecution", () => {
 
     //#then
     expect(result.error).toBeUndefined()
-    expect(result.agentToUse).toBe("Sisyphus - Ultraworker")
+    expect(result.agentToUse).toBe("Sisyphus | Ultraworker")
   })
 
   test("uses agent override fallback_models for subagent runtime fallback chain", async () => {
@@ -951,9 +951,9 @@ describe("resolveSubagentExecution - agent name sanitization", () => {
       connected: [],
       updatedAt: "2026-03-03T00:00:00.000Z",
     })
-    const args = createBaseArgs({ subagent_type: "Sisyphus - Ultraworker" })
+    const args = createBaseArgs({ subagent_type: "Sisyphus | Ultraworker" })
     const executorCtx = createExecutorContext(async () => ([
-      { name: "\u200BSisyphus - Ultraworker", mode: "subagent", model: "openai/gpt-5.3-codex" },
+      { name: "\u200BSisyphus | Ultraworker", mode: "subagent", model: "openai/gpt-5.3-codex" },
     ]))
 
     //#when
@@ -961,7 +961,7 @@ describe("resolveSubagentExecution - agent name sanitization", () => {
 
     //#then
     expect(result.error).toBeUndefined()
-    expect(result.agentToUse).toBe("Sisyphus - Ultraworker")
+    expect(result.agentToUse).toBe("Sisyphus | Ultraworker")
   })
 
   test("strips legacy ZWSP-prefixed agent names from persisted subagent runtime state (GH-3259)", async () => {

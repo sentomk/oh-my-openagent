@@ -1,7 +1,7 @@
 /**
  * Agent config keys to display names mapping.
  * Config keys are lowercase (e.g., "sisyphus", "atlas").
- * Display names include suffixes for UI/logs (e.g., "Sisyphus - Ultraworker").
+ * Display names include suffixes for UI/logs (e.g., "Sisyphus | Ultraworker").
  *
  * IMPORTANT: Display names MUST NOT contain parentheses or other characters
  * that are invalid in HTTP header values per RFC 7230. OpenCode passes the
@@ -10,7 +10,7 @@
  * type selector dropdown. Use ` - ` (space-dash-space) instead of `(...)`.
  */
 export const AGENT_DISPLAY_NAMES: Record<string, string> = {
-  sisyphus: "Sisyphus - Ultraworker",
+  sisyphus: "Sisyphus | Ultraworker",
   hephaestus: "Hephaestus - Deep Agent",
   prometheus: "Prometheus - Plan Builder",
   atlas: "Atlas - Plan Executor",
@@ -77,6 +77,7 @@ const REVERSE_DISPLAY_NAMES: Record<string, string> = Object.fromEntries(
 // Old configs/sessions may reference these names; resolve them to config keys.
 const LEGACY_DISPLAY_NAMES: Record<string, string> = {
   "sisyphus (ultraworker)": "sisyphus",
+  "sisyphus - ultraworker": "sisyphus",
   "hephaestus (deep agent)": "hephaestus",
   "prometheus (plan builder)": "prometheus",
   "atlas (plan executor)": "atlas",

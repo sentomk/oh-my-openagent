@@ -9,7 +9,7 @@ describe("ralph-loop continuation prompt injector", () => {
       client: {
         session: {
           messages: async () => ({
-            data: [{ info: { agent: "\u200bSisyphus - Ultraworker" } }],
+            data: [{ info: { agent: "\u200bSisyphus | Ultraworker" } }],
           }),
           promptAsync: async (input: { body: { agent?: string } }) => {
             promptBody = input.body
@@ -39,7 +39,7 @@ describe("ralph-loop continuation prompt injector", () => {
       client: {
         session: {
           messages: async () => ({
-            data: [{ info: { agent: "Sisyphus - Ultraworker" } }],
+            data: [{ info: { agent: "Sisyphus | Ultraworker" } }],
           }),
           promptAsync: async (input: { body: { agent?: string } }) => {
             promptBody = input.body

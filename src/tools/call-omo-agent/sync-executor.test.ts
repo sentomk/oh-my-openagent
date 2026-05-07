@@ -133,7 +133,7 @@ describe("executeSync", () => {
 
     //#then
     const promptInput = recorder.getCapturedInput()
-    expect(promptInput?.body.agent).toBe("Sisyphus - Ultraworker")
+    expect(promptInput?.body.agent).toBe("Sisyphus | Ultraworker")
   })
 
   test("returns processed response with task metadata footer", async () => {
@@ -308,7 +308,7 @@ describe("executeSync", () => {
     const toolContext = createToolContext()
     const recorder = createPromptAsyncRecorder()
     const args = {
-      subagent_type: "\u200BSisyphus - Ultraworker",
+      subagent_type: "\u200BSisyphus | Ultraworker",
       description: "prefixed agent",
       prompt: "find something",
       run_in_background: false,
@@ -319,7 +319,7 @@ describe("executeSync", () => {
 
     //#then
     const promptInput = recorder.getCapturedInput()
-    expect(promptInput?.body.agent).toBe("Sisyphus - Ultraworker")
+    expect(promptInput?.body.agent).toBe("Sisyphus | Ultraworker")
   })
 
   test("returns generic prompt failure with task metadata", async () => {

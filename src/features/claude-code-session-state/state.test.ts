@@ -152,13 +152,13 @@ describe("claude-code-session-state", () => {
 
     test("should resolve legacy parenthesized names to registered agent", () => {
       // given - agent registered with new display name format
-      registerAgentName("\u200BSisyphus - Ultraworker")
+      registerAgentName("\u200BSisyphus | Ultraworker")
 
       // when - historical session has old parenthesized format
       const resolved = resolveRegisteredAgentName("Sisyphus (Ultraworker)")
 
       // then - resolves to registered name via config key lookup
-      expect(resolved).toBe("\u200BSisyphus - Ultraworker")
+      expect(resolved).toBe("\u200BSisyphus | Ultraworker")
     })
 
     test("should resolve bare lowercase name from historical session", () => {

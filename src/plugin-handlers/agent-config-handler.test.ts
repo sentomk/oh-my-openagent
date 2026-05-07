@@ -194,7 +194,7 @@ describe("applyAgentConfig builtin override protection", () => {
   test("normalizes display-name default_agent to runtime agent name", async () => {
     // given
     const config = createBaseConfig()
-    config.default_agent = "Sisyphus - Ultraworker"
+    config.default_agent = "Sisyphus | Ultraworker"
 
     // when
     await applyAgentConfig({
